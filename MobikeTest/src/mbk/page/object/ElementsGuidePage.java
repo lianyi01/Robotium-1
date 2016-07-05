@@ -30,7 +30,7 @@ public class ElementsGuidePage {
 			
 			if(page_num==4){
 				//点击 开启摩拜之旅
-				solo.clickOnView(util.clickCtrlById("guide_start"));
+				solo.clickOnView(util.findViewById("guide_start"));
 				
 			}else{
 				

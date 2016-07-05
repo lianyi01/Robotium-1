@@ -37,15 +37,19 @@ public class ElementsQuitLogin {
 //		solo.sendKey(KeyEvent.KEYCODE_BACK);
 //		utils.scrollUpDown("message_rootview");
 		//点击设置按钮
-		setButton = utils.clickCtrlById("setting_rootview");
+		setButton = utils.findViewById("setting_rootview");
 		solo.clickOnView(setButton);
 	}
 	/**
 	 * 点击退出按钮
 	 */
 	public void clickQuitButton(){
+
 //		Log.e("当前activity", solo.getCurrentActivity().toString());
-		quitButton = utils.clickCtrlById("logout_button");
+		quitButton = utils.findViewById("logout_button");
+
+		Log.e("当前activity", solo.getCurrentActivity().toString());
+		quitButton = utils.findViewById("logout_button");
 		
 		solo.clickOnView(quitButton);
 		
