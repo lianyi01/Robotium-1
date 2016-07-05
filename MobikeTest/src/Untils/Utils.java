@@ -63,7 +63,7 @@ public class Utils {
 	 * 上下滑动操作
 	 */
 //	public void scrollUpDown(String id){
-//		ScrollView scrollView_city = (ScrollView) clickCtrlById(id);
+//		ScrollView scrollView_city = (ScrollView) solo.getView(id);
 //		int[] location = new int[2];
 //		scrollView_city.getLocationOnScreen(location);
 //		location[1] = location[1] + scrollView_city.getBottom();
@@ -72,21 +72,22 @@ public class Utils {
 //		Log.e("坐标Y", Integer.toString(location[1]));
 //		if(solo.waitForView(scrollView_city)){
 //            //从上往下滑动
-//            int newlistcount, listcount = scrollView_city.getCount();
+//            int newlistcount, listcount = scrollView_city.getChildCount();
 //            while(true){
-//                solo.scrollListToLine(scrollView_city, listcount);
+//            	solo.scrollToBottom();
+////            	solo.scrollListToLine(scrollView_city, listcount);
 //                solo.sleep(500);
 //                solo.drag(location[0]+10f, location[0]+10f,location[1]-10f, location[0]-100f,50);
 //                solo.sleep(2000);
-//                newlistcount=listView_city.getCount();
-//                if(newlistcount==listcount){
-//                    break;
-//                }else{
-//                    listcount=newlistcount;
-//                    Log.d("Tag","[Location]:  "+Integer.toString(listcount));
-//                }
+////                newlistcount=listView_city.getCount();
+////                if(newlistcount==listcount){
+////                    break;
+////                }else{
+////                    listcount=newlistcount;
+////                    Log.d("Tag","[Location]:  "+Integer.toString(listcount));
+////                }
 //            }
 //	}
-	
+//	
+//}
 }
-
