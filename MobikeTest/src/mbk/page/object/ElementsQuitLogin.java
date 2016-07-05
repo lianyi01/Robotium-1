@@ -23,9 +23,19 @@ public class ElementsQuitLogin {
 	public void clickSetButton(){
 		solo.sleep(2000);
 		//向上滑动
-		solo.scrollToBottom();
+//		solo.scrollToBottom();
+//		Log.e("方法:", "scrollToBottom()");
+//		solo.sleep(2000);
+//		solo.scrollDown();
+//		Log.e("方法:", "scrollDown()");
+//		solo.sleep(2000);
+//		solo.scrollToTop();
+//		Log.e("方法:", "scrollToTop()");
+		solo.drag(101, 855, 101, 1210, 1);
+		Log.e("方法:", "drag()");
+		solo.sleep(2000);
 //		solo.sendKey(KeyEvent.KEYCODE_BACK);
-
+//		utils.scrollUpDown("message_rootview");
 		//点击设置按钮
 		setButton = utils.clickCtrlById("setting_rootview");
 		solo.clickOnView(setButton);
@@ -34,7 +44,7 @@ public class ElementsQuitLogin {
 	 * 点击退出按钮
 	 */
 	public void clickQuitButton(){
-		Log.e("当前activity", solo.getCurrentActivity().toString());
+//		Log.e("当前activity", solo.getCurrentActivity().toString());
 		quitButton = utils.clickCtrlById("logout_button");
 		
 		solo.clickOnView(quitButton);
