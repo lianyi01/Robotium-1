@@ -4,9 +4,10 @@ import com.robotium.solo.Solo;
 
 import android.util.Log;
 import android.widget.TextView;
-import mbk.page.object.ElementMainActivity;
+import mbk.page.object.ElementPersonActivity;
 import mbk.page.object.ElementsGuidePage;
 import mbk.page.object.ElementsHomeInfo;
+import mbk.page.object.ElementsLoginActivity;
 import mbk.page.object.MiLiaoLoginActivity;
 import mbk.page.object.ElementsQuitLogin;
 /**
@@ -20,7 +21,8 @@ public class UIHelper {
 	private ElementsGuidePage  elementsGuidePage;
 	private ElementsHomeInfo elementsHomeInfo;
 	private ElementsQuitLogin elementsQuitLogin;
-	private ElementMainActivity elementMainActivity;
+	private ElementPersonActivity elementMainActivity;
+	private ElementsLoginActivity elementLoginActivity;
 	
 	public UIHelper(Solo solo) {
 		// TODO Auto-generated constructor stub
@@ -66,11 +68,21 @@ public class UIHelper {
 	/**
 	 * 主页
 	 */
-	public ElementMainActivity getElementsMainActivity(){
+	public ElementPersonActivity getElementsPersonActivity(){
 		if(elementMainActivity == null){
-			elementMainActivity = new ElementMainActivity(solo);
+			elementMainActivity = new ElementPersonActivity(solo);
 		}
 		return elementMainActivity;
+	}
+	
+	/**
+	 * 登录页
+	 */
+	public ElementsLoginActivity getElementsLoginActivity(){
+		if(elementLoginActivity == null){
+			elementLoginActivity = new ElementsLoginActivity(solo);
+		}
+		return elementLoginActivity;
 	}
 
 	/**

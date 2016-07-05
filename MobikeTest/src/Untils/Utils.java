@@ -24,7 +24,7 @@ public class Utils {
 	}
 	
 
-	public View clickCtrlById(String s){  
+	public View findViewById(String s){  
 		//id 点击
         int ctrl = 0;  
         View v;  
@@ -42,7 +42,7 @@ public class Utils {
     	return v;  
     }  
 	
-	public EditText enterTextById(String id){  
+	public EditText findEditTextById(String id){  
 		  	//id 输入
 	        int ctrl = 0;  
 	        EditText e;  

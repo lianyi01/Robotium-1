@@ -27,11 +27,11 @@ public class MiLiaoLoginActivity{
 
 	public void initViews(){
 		
-		username = util.enterTextById("my_account");
+		username = util.findEditTextById("my_account");
 		
-		password = util.enterTextById("my_password");
+		password = util.findEditTextById("my_password");
 		
-		login = util.clickCtrlById("login");
+		login = util.findViewById("login");
 		
 	}
 	public void enterUsername(String name){

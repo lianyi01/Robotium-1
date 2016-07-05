@@ -27,7 +27,7 @@ public class ElementsQuitLogin {
 //		solo.sendKey(KeyEvent.KEYCODE_BACK);
 
 		//点击设置按钮
-		setButton = utils.clickCtrlById("setting_rootview");
+		setButton = utils.findViewById("setting_rootview");
 		solo.clickOnView(setButton);
 	}
 	/**
@@ -35,7 +35,7 @@ public class ElementsQuitLogin {
 	 */
 	public void clickQuitButton(){
 		Log.e("当前activity", solo.getCurrentActivity().toString());
-		quitButton = utils.clickCtrlById("logout_button");
+		quitButton = utils.findViewById("logout_button");
 		
 		solo.clickOnView(quitButton);
 		

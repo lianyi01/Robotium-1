@@ -25,7 +25,6 @@ public class ElementsHomeInfo {
 		}catch(Exception e){
 			Log.e("错误信息：", e.getMessage());
 		}
-		
 	}
 
 }
