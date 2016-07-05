@@ -29,5 +29,8 @@ public class ElementPersonActivity {
 	public void pressLoginButton() {
 		solo.clickOnView(loginButton);
 	}
+	/*
+	 * 登录状态
+	 */
 
 }

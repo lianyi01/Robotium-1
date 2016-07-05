@@ -22,6 +22,9 @@ public class MBKLogin extends BaseTest {
 		String password = RedisUtils.getCode(username);
 		loginObject.dologin(password);
 	}
+	private void exitlogin(){
+		uihelper.getElementsQuitLogin().clickQuitButton();
+	}
 
 	public void testexecutor() {
 		uihelper.getElementsHomeInfo().info();
