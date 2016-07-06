@@ -40,6 +40,8 @@ public class BaseTest extends ActivityInstrumentationTestCase2{
 		try{
 			super.setUp();
 			init();
+			solo.unlockScreen();
+
 		}catch(Exception e){
 			e.printStackTrace();
 		}
