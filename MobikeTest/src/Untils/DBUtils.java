@@ -77,6 +77,7 @@ public class DBUtils {
     	//查询数据
     	try {
 			resultset = stmt.executeQuery(selectsql);
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

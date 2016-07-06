@@ -45,16 +45,9 @@ public class ElementsQuitLogin {
 
 			setButton = utils.findViewById("setting_rootview");
 			solo.clickOnView(setButton);
-<<<<<<< HEAD
-			
-			
-		}catch(Exception e){
-			
-=======
 
 		} catch (Exception e) {
 
->>>>>>> f666b915ca59fcf352c66f811d8fecf43c063172
 			Log.e("设置按钮点击异常:", e.getMessage());
 
 			Log.e("发生错误函数：", Thread.currentThread().getStackTrace()[2].getMethodName());
