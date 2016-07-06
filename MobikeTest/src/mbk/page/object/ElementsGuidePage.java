@@ -6,7 +6,11 @@ import Untils.Utils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
-
+/**
+ * 引导页
+ * @author mac-li
+ *
+ */
 public class ElementsGuidePage {
 	private Utils util;
 	private Solo solo;

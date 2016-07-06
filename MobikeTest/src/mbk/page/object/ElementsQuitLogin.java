@@ -10,18 +10,18 @@ public class ElementsQuitLogin {
 	private Solo solo;
 	private Utils utils;
 	private View setButton, quitButton;
-	private View dialog,dialog_quit,dialog_cancel;
+	private View dialog, dialog_quit, dialog_cancel;
 
 	public ElementsQuitLogin(Solo solo) {
 		// TODO Auto-generated constructor stub
 		this.solo = solo;
 		utils = new Utils(solo);
 	}
-	
-	private void initView(){
-		
-		
+
+	private void initView() {
+
 	}
+
 	/**
 	 * 点击设置按钮
 	 */
@@ -36,24 +36,38 @@ public class ElementsQuitLogin {
 		// solo.sleep(2000);
 		// solo.scrollToTop();
 		// Log.e("方法:", "scrollToTop()");
-		solo.drag(101, 855, 101, 1210, 1);
+		solo.drag(101, 101, 1210, 355, 3);
 		Log.e("方法:", "drag()");
 		solo.sleep(2000);
 		// solo.sendKey(KeyEvent.KEYCODE_BACK);
-		// utils.scrollUpDown("message_rootview");
 		// 点击设置按钮
-		setButton = utils.findViewById("setting_rootview");
-		solo.clickOnView(setButton);
+		try {
+
+			setButton = utils.findViewById("setting_rootview");
+			solo.clickOnView(setButton);
+
+		} catch (Exception e) {
+
+			Log.e("设置按钮点击异常:", e.getMessage());
+
+			Log.e("发生错误函数：", Thread.currentThread().getStackTrace()[2].getMethodName());
+
+		}
 	}
 
 	/**
 	 * 点击退出按钮
 	 */
+
 	public void clickQuitButton() {
-		Log.e("当前activity", solo.getCurrentActivity().toString());
-		quitButton = utils.findViewById("logout_button");
-		solo.clickOnView(quitButton);
-		solo.sleep(1000);
+		try {
+			quitButton = utils.findViewById("logout_button");
+			solo.clickOnView(quitButton);
+		} catch (Exception e) {
+			Log.e("退出按钮点击异常", e.getMessage());
+			Log.e("发生错误函数：", Thread.currentThread().getStackTrace()[2].getMethodName());
+		}
+
 	}
 
 	/**
@@ -66,7 +80,7 @@ public class ElementsQuitLogin {
 			} else {
 				solo.clickOnButton("取消");
 			}
+			solo.sleep(1000);
 		}
-		solo.sleep(1000);
 	}
 }
