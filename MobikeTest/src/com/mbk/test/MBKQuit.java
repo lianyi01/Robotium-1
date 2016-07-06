@@ -1,7 +1,6 @@
 package com.mbk.test;
 
-import org.apache.log4j.Logger;
-import org.apache.log4j.PropertyConfigurator;
+import java.io.IOException;
 
 import Untils.BaseTest;
 import android.view.KeyEvent;
@@ -12,19 +11,19 @@ import android.view.KeyEvent;
  *
  */
 public class MBKQuit extends BaseTest {
-//	PropertyConfigurator.configure("./src/log4j.properties");
-	private  Logger log = Logger.getLogger(MBKQuit.class);
+	
+	String log_url = "/sdcard/log.html" ;
 	
 	public void setUp() throws Exception{
 		super.setUp();
 		//初始化登录方法
-		//初始化log
 		
 	}
-	public void testquitLogin(){
+	public void testquitLogin() throws IOException{
+		//写log信息到SD卡
+		uihelper.StringBufferDemo(log_url, "测试信息1");
+		
 		uihelper.getsolo().sleep(5000);
-		log.warn("我是警告信息啊啊");
-		log.debug("我是警告信息啊啊");
 		//首页进入个人中心
 		uihelper.getElementsHomeInfo().info();
 		uihelper.getsolo().sleep(2000);
@@ -36,7 +35,7 @@ public class MBKQuit extends BaseTest {
 		uihelper.getsolo().sleep(1500);
 		uihelper.getElementsQuitLogin().opsAlert(false);
 		assertTrue(uihelper.getsolo().searchButton("退出登录"));
-		
+		uihelper.StringBufferDemo(log_url, "测试信息2");
 		//点击退出按钮
 		uihelper.getElementsQuitLogin().clickQuitButton();
 		//点击取消按钮
@@ -44,10 +43,8 @@ public class MBKQuit extends BaseTest {
 		//点击确定按钮
 		uihelper.getElementsQuitLogin().opsAlert(true);
 		assertTrue(uihelper.getsolo().searchText("个人中心"));
-		
 		uihelper.getsolo().sendKey(KeyEvent.KEYCODE_BACK);
 		
-		this.log.warn("我是警告信息啊啊");
 	}
 	public void tearDown() throws Exception{
 		uihelper.getsolo().sleep(1000);

@@ -1,5 +1,9 @@
 package Untils;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import com.robotium.solo.Solo;
 
 import android.util.Log;
@@ -8,7 +12,6 @@ import mbk.page.object.ElementPersonActivity;
 import mbk.page.object.ElementsGuidePage;
 import mbk.page.object.ElementsHomeInfo;
 import mbk.page.object.ElementsLoginActivity;
-import mbk.page.object.MiLiaoLoginActivity;
 import mbk.page.object.ElementsQuitLogin;
 /**
  * Case统一入口
@@ -113,5 +116,21 @@ public class UIHelper {
 		}
 		return false;
 	}
+	
+	/**
+	 * Log信息写入到手机SD卡
+	 */
+	public void StringBufferDemo(String url, String str) throws IOException{  
+	       File file=new File(url);  
+	       if(!file.exists())  
+	           file.createNewFile();  
+	       FileOutputStream out=new FileOutputStream(file,true);          
+	        
+	           StringBuffer sb=new StringBuffer();  
+	           sb.append(str); //直接在文件中追加文字  
+	           out.write(sb.toString().getBytes("utf-8"));  
+	           
+	       out.close();  
+	   }
 	
 }
