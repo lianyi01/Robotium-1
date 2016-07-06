@@ -24,6 +24,7 @@ public class ElementsHomeInfo {
 		solo.clickOnImageButton(0);
 		}catch(Exception e){
 			Log.e("错误信息：", e.getMessage());
+			Log.e("发生错误函数：", Thread.currentThread().getStackTrace()[2].getMethodName());
 		}
 	}
 
