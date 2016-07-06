@@ -31,15 +31,16 @@ public class MBKQuit extends BaseTest {
 		uihelper.getsolo().sleep(2000);
 		//点击设置
 		uihelper.getElementsQuitLogin().clickSetButton();
-		
 		uihelper.getElementsQuitLogin().clickQuitButton();
-		uihelper.getElementsQuitLogin().opsAlert(false);
 		
-		uihelper.getsolo().sleep(1000);
+		uihelper.getsolo().sleep(2000);
+		uihelper.getElementsQuitLogin().opsAlert(true);
+		
+		
 		
 	}
 	public void tearDown() throws Exception{
-		
+		uihelper.getsolo().sleep(5000);
 		super.tearDown();
 	}
 }

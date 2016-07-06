@@ -70,9 +70,12 @@ public class ElementsQuitLogin {
 	 */
 	public void opsAlert(Boolean confirm){
 		if(confirm){
-			solo.clickOnText("确定");
+			
+			solo.clickOnButton("确定");
+//			Log.e("确定按钮：", "clickOnButton(\"确定\")");
+
 		}else{
-			solo.clickOnText("取消");
+			solo.clickOnButton("取消");
 		}
 	}
 }
