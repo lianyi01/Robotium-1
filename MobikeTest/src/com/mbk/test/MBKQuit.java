@@ -1,12 +1,7 @@
 package com.mbk.test;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-
 import Untils.BaseTest;
-import android.util.Log;
+import android.view.KeyEvent;
 /**
  * 1.先调用登录
  * 2.进入个人中心
@@ -31,16 +26,26 @@ public class MBKQuit extends BaseTest {
 		uihelper.getsolo().sleep(2000);
 		//点击设置
 		uihelper.getElementsQuitLogin().clickSetButton();
+		//点击退出按钮
 		uihelper.getElementsQuitLogin().clickQuitButton();
+		//点击取消按钮
+		uihelper.getsolo().sleep(1500);
+		uihelper.getElementsQuitLogin().opsAlert(false);
+		assertTrue(uihelper.getsolo().searchButton("退出登录"));
 		
-		uihelper.getsolo().sleep(2000);
+		//点击退出按钮
+		uihelper.getElementsQuitLogin().clickQuitButton();
+		//点击取消按钮
+		uihelper.getsolo().sleep(1500);
+		//点击确定按钮
 		uihelper.getElementsQuitLogin().opsAlert(true);
+		assertTrue(uihelper.getsolo().searchText("个人中心"));
 		
-		
+		uihelper.getsolo().sendKey(KeyEvent.KEYCODE_BACK);
 		
 	}
 	public void tearDown() throws Exception{
-		uihelper.getsolo().sleep(5000);
+		uihelper.getsolo().sleep(1000);
 		super.tearDown();
 	}
 }

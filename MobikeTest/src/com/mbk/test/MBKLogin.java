@@ -1,8 +1,7 @@
 package com.mbk.test;
 
 import Untils.BaseTest;
-import Untils.RedisUtils;
-import android.util.Log;
+import Untils.DBUtils;
 //import mbk.page.object.ElementsLoginActivity;
 import mbk.page.object.ElementsLoginActivity;
 
@@ -19,7 +18,7 @@ public class MBKLogin extends BaseTest {
 
 	public void login(String username) {
 		loginObject.getVerifyCode(username);
-		String password = RedisUtils.getCode(username);
+		String password = DBUtils.redisGetCode(username);
 		loginObject.dologin(password);
 	}
 
