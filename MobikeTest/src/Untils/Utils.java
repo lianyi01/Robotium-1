@@ -2,13 +2,10 @@ package Untils;
 
 import com.robotium.solo.Solo;
 
-import android.R.bool;
-import android.app.Activity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ScrollView;
-import android.widget.TextView;
 /**
  * 通过id定位操作
  * @author mac-li
@@ -41,6 +38,22 @@ public class Utils {
 
     	return v;  
     }  
+	
+	public Button findButtonByID(String s){
+        int ctrl = 0;
+        Button btn;
+        try {
+        		ctrl	= solo.getCurrentActivity().getResources().getIdentifier(s, "id", solo.getCurrentActivity().getPackageName());
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}        
+        //等待元素出现，timeout 5s      
+        solo.waitForFragmentById(ctrl, 5000);
+        btn = solo.getButton(ctrl);
+		return btn;
+	}
 	
 	public EditText findEditTextById(String id){  
 		  	//id 输入
