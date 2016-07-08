@@ -11,6 +11,8 @@ import android.widget.TextView;
 public class ElementsHomeInfo {
 	private Solo solo;
 	private Utils util;
+	//页面控件UI对象
+	
 	//摩拜单车使用说明
 	private View guide;
 	private TextView guideText;
@@ -26,10 +28,12 @@ public class ElementsHomeInfo {
 	private View unlockButton;
 	//离我最近按钮
 	private View nearByButton;
+	
 	public ElementsHomeInfo(Solo solo) {
 		// TODO Auto-generated constructor stub
 		this.solo = solo;
 		util = new Utils(solo);
+		
 	}
 	/**
 	 * 放弃全部初始化，加载时间太长，改为使用时加载控件
