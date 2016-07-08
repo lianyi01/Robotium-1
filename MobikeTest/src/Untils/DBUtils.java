@@ -57,7 +57,7 @@ public class DBUtils {
 				stmt.execute(db);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Log.e("选择数据库错误:", e.getMessage().toString());
 			}
     	}
     }
@@ -68,7 +68,7 @@ public class DBUtils {
 				stmt.executeUpdate(updatesql);
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				Log.e("数据库Update操作错误:", e.getMessage().toString());
 			}
             
     	}
@@ -80,7 +80,7 @@ public class DBUtils {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			Log.e("数据库Select操作错误:", e.getMessage().toString());
 		}
     	
     	return resultset;
@@ -101,7 +101,7 @@ public class DBUtils {
                 conn = null;
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+        	Log.e("数据库关闭错误:", e.getMessage().toString());
         }
     }
 }

@@ -52,6 +52,7 @@ public class Utils {
         //等待元素出现，timeout 5s      
         solo.waitForFragmentById(ctrl, 5000);
         btn = solo.getButton(ctrl);
+        
 		return btn;
 	}
 	

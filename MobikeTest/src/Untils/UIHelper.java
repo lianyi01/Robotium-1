@@ -13,6 +13,7 @@ import mbk.page.object.ElementsGuidePage;
 import mbk.page.object.ElementsHomeInfo;
 import mbk.page.object.ElementsLoginActivity;
 import mbk.page.object.ElementsQuitLogin;
+import mbk.page.object.ElementsSearchPage;
 /**
  * Case统一入口
  * 每个Case页面类都需要在此声明
@@ -26,6 +27,7 @@ public class UIHelper {
 	private ElementsQuitLogin elementsQuitLogin;
 	private ElementPersonActivity elementMainActivity;
 	private ElementsLoginActivity elementLoginActivity;
+	private ElementsSearchPage elementsSearchPage;
 	
 	public UIHelper(Solo solo) {
 		// TODO Auto-generated constructor stub
@@ -86,6 +88,15 @@ public class UIHelper {
 			elementLoginActivity = new ElementsLoginActivity(solo);
 		}
 		return elementLoginActivity;
+	}
+	/**
+	 * 搜索页面
+	 */
+	public ElementsSearchPage getElementsSearchPage(){
+		if(elementsSearchPage == null){
+			elementsSearchPage = new ElementsSearchPage(solo);
+		}
+		return elementsSearchPage;
 	}
 
 	/**
