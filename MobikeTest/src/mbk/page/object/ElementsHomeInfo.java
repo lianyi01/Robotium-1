@@ -170,10 +170,8 @@ public class ElementsHomeInfo {
 	}
 
 	public boolean isLogin() {
-		Boolean islogin = false;
-
-		return islogin;
-
+		Boolean hasIntroduceBtn = solo.searchButton("摩拜单车使用说明");
+		return hasIntroduceBtn;
 	}
 
 	public void pressloginFromScan() {
