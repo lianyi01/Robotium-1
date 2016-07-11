@@ -1,16 +1,24 @@
 package mbk.page.object;
 
+import java.util.Map;
+
 import com.robotium.solo.Solo;
 
+import Untils.ReturnPageUI;
 import Untils.Utils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 public class ElementsHomeInfo {
 	private Solo solo;
 	private Utils util;
+
+	// 页面控件UI对象
+	private ReturnPageUI rePageUI;
+	private Map<String, String> mapKey;
+	// 摩拜单车使用说明
+
 	// 页面控件UI对象
 
 	// 摩拜单车使用说明
@@ -33,6 +41,10 @@ public class ElementsHomeInfo {
 		// TODO Auto-generated constructor stub
 		this.solo = solo;
 		util = new Utils(solo);
+		// 初始化HomeInfo数据页对象
+		rePageUI = new ReturnPageUI();
+		mapKey = rePageUI.getHomeInfoPageUI();
+
 	}
 
 	/**
@@ -67,6 +79,8 @@ public class ElementsHomeInfo {
 	public String checkGuideText() {
 		// 获取帮助说明文字
 		String text;
+
+		guideText = (TextView) util.findViewById(mapKey.get("HomeInfo.guide"));
 		guideText = (TextView) util.findViewById("mobike_user_manual_button");
 		text = guideText.getText().toString();
 		return text;
@@ -75,7 +89,7 @@ public class ElementsHomeInfo {
 	public void clickGuideButton() {
 		// 点击
 		try {
-			guide = util.findViewById("mobike_user_manual_button");
+			guide = util.findViewById(mapKey.get("HomeInfo.guide"));
 			solo.clickOnView(guide);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -88,7 +102,7 @@ public class ElementsHomeInfo {
 	 */
 	public void clickRefresh() {
 		try {
-			refreshButton = util.findViewById("refresh_nearby_bike_button_arrow");
+			refreshButton = util.findViewById(mapKey.get("HomeInfo.refreshButton"));
 			solo.clickOnView(refreshButton);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -101,7 +115,7 @@ public class ElementsHomeInfo {
 	 */
 	public void clickSearch() {
 		try {
-			searchButton = util.findViewById("action_search");
+			searchButton = util.findViewById(mapKey.get("HomeInfo.searchButton"));
 			solo.clickOnView(searchButton);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -114,7 +128,7 @@ public class ElementsHomeInfo {
 	 */
 	public void clickLocation() {
 		try {
-			locationButton = util.findViewById("map_location_button");
+			locationButton = util.findViewById(mapKey.get("HomeInfo.locationButton"));
 			solo.clickOnView(locationButton);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -127,7 +141,7 @@ public class ElementsHomeInfo {
 	 */
 	public void clickHelp() {
 		try {
-			helpButton = util.findViewById("map_menu_button");
+			helpButton = util.findViewById(mapKey.get("HomeInfo.helpButton"));
 			solo.clickOnView(helpButton);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -140,7 +154,7 @@ public class ElementsHomeInfo {
 	 */
 	public void clickUnlock() {
 		try {
-			unlockButton = util.findViewById("unlock_toolbar");
+			unlockButton = util.findViewById(mapKey.get("HomeInfo.unlockButton"));
 			solo.clickOnView(unlockButton);
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -161,9 +175,9 @@ public class ElementsHomeInfo {
 
 	public void clickNearButton() {
 		try {
-			solo.clickOnView(util.findViewById("info_window_text"));
+
+			solo.clickOnView(util.findViewById(mapKey.get("HomeInfo.nearByButton")));
 		} catch (Exception e) {
-			// TODO: handle exception
 			Log.e("错误信息：点击离我最近按钮", e.getMessage().toString());
 		}
 	}

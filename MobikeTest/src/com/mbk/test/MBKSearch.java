@@ -1,6 +1,7 @@
 package com.mbk.test;
 
 import Untils.BaseTest;
+import Untils.WifiControl;
 import android.util.Log;
 
 public class MBKSearch extends BaseTest {
@@ -27,5 +28,8 @@ public class MBKSearch extends BaseTest {
 		uihelper.getElementsSearchPage().clickResultList();
 		uihelper.getsolo().sleep(3000);
 		assertTrue(solo.searchButton("扫码开锁"));
+		closeWifi();
+
+		statusWifi();
 	}
 }

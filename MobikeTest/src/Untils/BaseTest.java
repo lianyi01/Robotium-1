@@ -3,6 +3,7 @@ package Untils;
 import com.robotium.solo.Solo;
 
 import android.test.ActivityInstrumentationTestCase2;
+import android.util.Log;
 import android.widget.TextView;
 /**
  * 初始化Solo对象和UIHelper统一入口对象
@@ -13,6 +14,7 @@ public class BaseTest extends ActivityInstrumentationTestCase2{
 	
 	protected Solo solo;
 	protected UIHelper uihelper;
+	private WifiControl wifiControl;
 	
 //	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.xiaomi.channel.ui.ChannelLauncherActivity";
 	private static final String LAUNCHER_ACTIVITY_FULL_CLASSNAME = "com.mobike.mobikeapp.SplashActivity";
@@ -56,7 +58,29 @@ public class BaseTest extends ActivityInstrumentationTestCase2{
 		uihelper = new UIHelper(solo);
 		
 	}
-	
+	/**
+	 * Wifi设置
+	 */
+	public void closeWifi(){  
+        if(wifiControl == null){  
+        	wifiControl = new WifiControl(getActivity().getBaseContext());  
+        }  
+        wifiControl.closeWifi();  
+        solo.sleep(6000);  
+    }
+	public void openWifi(){  
+        if(wifiControl == null){  
+        	wifiControl = new WifiControl(getActivity().getBaseContext());  
+        }  
+        wifiControl.openWifi();  
+        solo.sleep(6000);  
+    } 
+	public void statusWifi(){  
+        if(wifiControl == null){  
+        	wifiControl = new WifiControl(getActivity().getBaseContext());  
+        }  
+        Log.i("Wifi状态", Integer.toString(wifiControl.fromWifiState()));
+    } 
 	
 	public void tearDown() throws Exception{
 		super.tearDown();
