@@ -28,8 +28,8 @@ public class MBKSearch extends BaseTest {
 		uihelper.getElementsSearchPage().clickResultList();
 		uihelper.getsolo().sleep(3000);
 		assertTrue(solo.searchButton("扫码开锁"));
-		WifiControl wifiAdmin = new WifiControl(getActivity().getBaseContext());
-		String strWifi = String.valueOf(wifiAdmin.fromWifiState());
-		Log.e("wifi", "当前wifi状态为：" + strWifi);
+		closeWifi();
+
+		statusWifi();
 	}
 }

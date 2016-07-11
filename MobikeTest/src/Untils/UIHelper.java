@@ -143,5 +143,8 @@ public class UIHelper {
 	           
 	       out.close();  
 	   }
+	public void openWifi(){
+		
+	}
 	
 }
