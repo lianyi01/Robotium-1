@@ -1,7 +1,7 @@
 package com.mbk.test;
 
 import Untils.BaseTest;
-import Untils.RedisUtils;
+import Untils.DBUtils;
 import mbk.page.object.ElementsLoginActivity;
 
 /*
@@ -17,7 +17,7 @@ public class MBKLogin extends BaseTest {
 
 	public void login(String username) {
 		loginObject.getVerifyCode(username);
-		String password = RedisUtils.getCode(username);
+		String password = DBUtils.redisGetCode(username);
 		loginObject.dologin(password);
 		solo.sleep(1000);
 		exitlogin();
@@ -103,7 +103,7 @@ public class MBKLogin extends BaseTest {
 	public void homeexit() {
 		solo.sleep(1000);
 		// 判断是否是登录状态
-		if (!uihelper.getElementsHomeInfo().searchMobikeIntroduce()) {
+		if (!uihelper.getElementsHomeInfo().isLogin()) {
 			// 没有既是登录状态－－> 退出登录
 			uihelper.getElementsHomeInfo().info();
 			exitlogin();

@@ -1,0 +1,19 @@
+Hello this is an debug message
+Hello this is an info message
+Hello this is an debug message
+Hello this is an info message
+Hello this is an debug message
+Hello this is an info message
+Hello this is an debug message
+Hello this is an info message
+Hello this is an debug message
+Hello this is an info message
+Hello this is an debug message
+Hello this is an info message
+Hello this is an error message
+2016-07-06-main--DEBUG-log4jExample:Hello this is an debug message
+2016-07-06-main--INFO -log4jExample:Hello this is an info message
+2016-07-06-main--ERROR-log4jExample:Hello this is an error message
+2016-07-06-main--DEBUG-log4jExample:Hello this is an debug message
+2016-07-06-main--INFO -log4jExample:Hello this is an info message
+2016-07-06-main--ERROR-log4jExample:Hello this is an error message

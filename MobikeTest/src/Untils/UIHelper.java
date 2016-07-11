@@ -1,5 +1,9 @@
 package Untils;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
 import com.robotium.solo.Solo;
 
 import android.util.Log;
@@ -8,8 +12,8 @@ import mbk.page.object.ElementPersonActivity;
 import mbk.page.object.ElementsGuidePage;
 import mbk.page.object.ElementsHomeInfo;
 import mbk.page.object.ElementsLoginActivity;
-import mbk.page.object.MiLiaoLoginActivity;
 import mbk.page.object.ElementsQuitLogin;
+import mbk.page.object.ElementsSearchPage;
 /**
  * Case统一入口
  * 每个Case页面类都需要在此声明
@@ -23,6 +27,7 @@ public class UIHelper {
 	private ElementsQuitLogin elementsQuitLogin;
 	private ElementPersonActivity elementMainActivity;
 	private ElementsLoginActivity elementLoginActivity;
+	private ElementsSearchPage elementsSearchPage;
 	
 	public UIHelper(Solo solo) {
 		// TODO Auto-generated constructor stub
@@ -84,6 +89,15 @@ public class UIHelper {
 		}
 		return elementLoginActivity;
 	}
+	/**
+	 * 搜索页面
+	 */
+	public ElementsSearchPage getElementsSearchPage(){
+		if(elementsSearchPage == null){
+			elementsSearchPage = new ElementsSearchPage(solo);
+		}
+		return elementsSearchPage;
+	}
 
 	/**
 	 * 获取toast消息
@@ -113,5 +127,21 @@ public class UIHelper {
 		}
 		return false;
 	}
+	
+	/**
+	 * Log信息写入到手机SD卡
+	 */
+	public void StringBufferDemo(String url, String str) throws IOException{  
+	       File file=new File(url);  
+	       if(!file.exists())  
+	           file.createNewFile();  
+	       FileOutputStream out=new FileOutputStream(file,true);          
+	        
+	           StringBuffer sb=new StringBuffer();  
+	           sb.append(str); //直接在文件中追加文字  
+	           out.write(sb.toString().getBytes("utf-8"));  
+	           
+	       out.close();  
+	   }
 	
 }
