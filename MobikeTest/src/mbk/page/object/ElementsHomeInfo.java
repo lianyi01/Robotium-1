@@ -14,16 +14,15 @@ import android.widget.TextView;
 public class ElementsHomeInfo {
 	private Solo solo;
 	private Utils util;
-<<<<<<< HEAD
+
 	//页面控件UI对象
 	private ReturnPageUI rePageUI;
 	private Map<String,String> mapKey;
 	//摩拜单车使用说明
-=======
+
 	// 页面控件UI对象
 
 	// 摩拜单车使用说明
->>>>>>> 50fcbed9da2d2b54fbe7b1d672460fcbdc4df0d0
 	private View guide;
 	private TextView guideText;
 	// 刷新按钮
@@ -43,13 +42,11 @@ public class ElementsHomeInfo {
 		// TODO Auto-generated constructor stub
 		this.solo = solo;
 		util = new Utils(solo);
-<<<<<<< HEAD
 		//初始化HomeInfo数据页对象
 		rePageUI = new ReturnPageUI();
 		mapKey = rePageUI.getHomeInfoPageUI();
 		
-=======
->>>>>>> 50fcbed9da2d2b54fbe7b1d672460fcbdc4df0d0
+
 	}
 
 	/**
@@ -84,11 +81,9 @@ public class ElementsHomeInfo {
 	public String checkGuideText() {
 		// 获取帮助说明文字
 		String text;
-<<<<<<< HEAD
+
 		guideText = (TextView)util.findViewById(mapKey.get("HomeInfo.guide"));
-=======
 		guideText = (TextView) util.findViewById("mobike_user_manual_button");
->>>>>>> 50fcbed9da2d2b54fbe7b1d672460fcbdc4df0d0
 		text = guideText.getText().toString();
 		return text;
 	}
@@ -179,21 +174,11 @@ public class ElementsHomeInfo {
 			return false;
 		}
 	}
-<<<<<<< HEAD
 	public void clickNearButton(){
 		try{
 			
 			solo.clickOnView(util.findViewById(mapKey.get("HomeInfo.nearByButton")));
 		}catch (Exception e) {
-=======
-
-	public void clickNearButton() {
-		try {
-
-			solo.clickOnView(util.findViewById("info_window_text"));
-		} catch (Exception e) {
->>>>>>> 50fcbed9da2d2b54fbe7b1d672460fcbdc4df0d0
-			// TODO: handle exception
 			Log.e("错误信息：点击离我最近按钮", e.getMessage().toString());
 		}
 	}
