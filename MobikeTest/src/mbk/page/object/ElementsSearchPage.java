@@ -1,7 +1,10 @@
 package mbk.page.object;
 
+import java.util.Map;
+
 import com.robotium.solo.Solo;
 
+import Untils.ReturnPageUI;
 import Untils.Utils;
 import android.util.Log;
 import android.view.View;
@@ -13,6 +16,9 @@ public class ElementsSearchPage {
 	
 	private Solo solo;
 	private Utils util;
+	//页面控件UI对象
+	private ReturnPageUI rePageUI;
+	private Map<String,String> mapKey;
 	//搜索输入框
 	private EditText searchText;
 	//清空输入框按钮
@@ -29,6 +35,9 @@ public class ElementsSearchPage {
 		this.solo =solo;
 		
 		util = new Utils(solo);
+		//初始化SearchPage数据页对象
+		rePageUI = new ReturnPageUI();
+		mapKey = rePageUI.getSearchPageUI();
 	}
 
 	
@@ -37,7 +46,7 @@ public class ElementsSearchPage {
 	 */
 	public void enterSearchMessage(String message){
 		try{
-			searchText = util.findEditTextById("search_src_text");
+			searchText = util.findEditTextById(mapKey.get("SearchPage.searchText"));
 			solo.enterText(searchText, message);
 		}catch(Exception e){
 			Log.e("搜索输入框错误信息：", e.getMessage());
@@ -48,7 +57,7 @@ public class ElementsSearchPage {
 	 */
 	public void clickDeleteEnterText(){
 		try{
-			deleteClick = util.findViewById("search_close_btn");
+			deleteClick = util.findViewById(mapKey.get("SearchPage.deleteClick"));
 			solo.clickOnView(deleteClick);
 		}catch(Exception e){
 			Log.e("搜索输入框清空按钮错误信息：", e.getMessage());
@@ -59,7 +68,7 @@ public class ElementsSearchPage {
 	 */
 	public void clickCancelButton(){
 		try{
-			cancelClick = util.findViewById("action_search");
+			cancelClick = util.findViewById(mapKey.get("SearchPage.cancelClick"));
 			solo.clickOnView(cancelClick);
 			
 		}catch(Exception e){
@@ -73,7 +82,7 @@ public class ElementsSearchPage {
 		
 		try{
 			//获取控件
-			locationMessage = (TextView) util.findViewById("current_location");
+			locationMessage = (TextView) util.findViewById(mapKey.get("SearchPage.locationMessage"));
 			//定位信息
 			String locationms;
 			locationms = locationMessage.getText().toString();
@@ -92,8 +101,8 @@ public class ElementsSearchPage {
 	 */
 	public Boolean clickResultList(){
 		try{
-			//父listView
-			resultList = (ListView) util.findViewById("search_listview");
+			//整个listView
+			resultList = (ListView) util.findViewById(mapKey.get("SearchPage.resultList"));
 			if(resultList.getCount()>0){
 			//默认点击结果列表第0个
 				solo.clickInList(0);
