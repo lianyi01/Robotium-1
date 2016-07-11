@@ -2,8 +2,6 @@ package com.mbk.test;
 
 import Untils.BaseTest;
 import Untils.RedisUtils;
-import android.util.Log;
-//import mbk.page.object.ElementsLoginActivity;
 import mbk.page.object.ElementsLoginActivity;
 
 /*
@@ -68,7 +66,6 @@ public class MBKLogin extends BaseTest {
 		uihelper.getElementsPersonActivity().pressLoginButton();
 		uihelper.getElementsLoginActivity().getVerifyPhone("18501039991");
 		solo.sleep(2000);
-
 	}
 
 	/*
