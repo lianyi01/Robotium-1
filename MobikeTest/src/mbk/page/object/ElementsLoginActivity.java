@@ -4,8 +4,6 @@ import com.robotium.solo.Solo;
 
 import Untils.Utils;
 import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
 
 public class ElementsLoginActivity {
 	private Utils util;
@@ -29,12 +27,12 @@ public class ElementsLoginActivity {
 //		btn_login = util.findViewById("sign_in_button");
 	}
 
-	private void enterMobile(String phone) {
+	public void enterMobile(String phone) {
 //		solo.clearEditText(edt_mobileNum);
 		solo.enterText(util.findEditTextById("mobile_number"), phone);
 	}
 
-	private void enterVerifyCode(String verifycode) {
+	public void enterVerifyCode(String verifycode) {
 //		solo.clearEditText(edt_verify);
 		solo.enterText(util.findEditTextById("verify_code"), verifycode);
 	}
@@ -45,12 +43,21 @@ public class ElementsLoginActivity {
 		solo.clickOnView(util.findViewById("get_verify_code_btn"));
 		solo.sleep(1000);
 	}
+	public void getVerifyPhone(String phone){
+		enterMobile(phone);
+		solo.sleep(1000);
+		solo.clickOnText("收不到短信，试试语音验证码");
+	}
 
 	public void dologin(String verifycode) {
 		enterVerifyCode(verifycode);
 		solo.sleep(1000);
 		solo.clickOnView(util.findViewById("sign_in_button"));
 		solo.sleep(3000);
+	}
+	
+	public String title(){
+		return solo.getCurrentActivity().getTitle().toString();
 	}
 
 }
