@@ -1,7 +1,14 @@
 package com.mbk.test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Map;
+
 import Untils.BaseTest;
 import Untils.DBUtils;
+import Untils.ExcelReader;
 import mbk.page.object.ElementsLoginActivity;
 
 /*
@@ -34,49 +41,88 @@ public class MBKLogin extends BaseTest {
 	}
 
 	/*
-	 * 通过个人中心登录 测试号码段
+	 * 通过个人中心登录 测试正确号码段
 	 */
-	// public void testexecutor() {
-	// solo.sleep(1000);
-	// homeexit();
-	// uihelper.getElementsHomeInfo().info();
-	// solo.sleep(1000);
-	// // 判断是否是登录状态
-	//// if (!uihelper.getElementsPersonActivity().isnotlogin()) {
-	//// // 是－－> 退出登录
-	//// exitlogin();
-	//// }
-	// uihelper.getElementsPersonActivity().pressLoginButton();
-	// solo.sleep(1000);
-	// String info[] = new String[] { "18001000002", "18501039991" };
-	// for (int i = 0; i < info.length; i++) {
-	// String phone = info[i];
-	// loginObject = uihelper.getElementsLoginActivity();
-	// login(phone);
-	// }
-	//
-	// }
+	public void testexecutor() {
+		// solo.sleep(1000);
+		// homeexit();
+		// uihelper.getElementsHomeInfo().info();
+		// solo.sleep(1000);
+		// // 判断是否是登录状态
+		// if (!uihelper.getElementsPersonActivity().isnotlogin()) {
+		// // 是－－> 退出登录
+		// exitlogin();
+		// }
+		// uihelper.getElementsPersonActivity().pressLoginButton();
+		// solo.sleep(1000);
+		// String info[] = new String[] { "18001000002", "18501039991" };
+		// for (int i = 0; i < info.length; i++) {
+		// String phone = info[i];
+		// loginObject = uihelper.getElementsLoginActivity();
+		// login(phone);
+		// }
+		ExcelReader reader = new ExcelReader();
+		// String path =
+		// Environment.getDataDirectory().getAbsolutePath()+"/loginCase.xls";
+		// Log.e("========", path);
+		try {
+			InputStream is = solo.getCurrentActivity().getAssets().open("file:///android_asset/loginCase.xls");
+			reader.readExcelTitle(is);
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		// List<LoginCaseModle> logincaseList = new ArrayList<LoginCaseModle>();
+		// LoginCaseModle logincase = new LoginCaseModle("1880103999",
+		// ExpectEnum.failedByPhone);
+		// LoginCaseModle logincase1 = new LoginCaseModle("18801039991",
+		// ExpectEnum.success);
+		// logincaseList.add(logincase);
+		// logincaseList.add(logincase1);
+		// for (int i = 0; i < logincaseList.size(); i++) {
+		// LoginCaseModle item = logincaseList.get(i);
+		// item.getExpect();
+		// switch (item.getExpect()) {
+		// case success:
+		// break;
+		// case failedByPhone:
+		// break;
+		//
+		// case failedByVerify:
+		// break;
+		//
+		// case failedByNetWork:
+		// break;
+		//
+		// default:
+		// break;
+		// }
+		//
+		// }
+
+	}
 
 	/*
 	 * 语音获取验证码
 	 */
-	public void test_verifyByphone() {
-		homeexit();
-		uihelper.getElementsHomeInfo().info();
-		uihelper.getElementsPersonActivity().pressLoginButton();
-		uihelper.getElementsLoginActivity().getVerifyPhone("18501039991");
-		solo.sleep(2000);
-	}
+	// public void test_verifyByphone() {
+	// homeexit();
+	// uihelper.getElementsHomeInfo().info();
+	// uihelper.getElementsPersonActivity().pressLoginButton();
+	// uihelper.getElementsLoginActivity().getVerifyPhone("18501039991");
+	// solo.sleep(2000);
+	// }
 
 	/*
 	 * 通过首页mobike说明登录
 	 */
 	// public void test_login_by_introduce() {
 	// homeexit();
-	// uihelper.getElementsHomeInfo().pressUserManualButton();
+	// uihelper.getElementsHomeInfo().clickGuideButton();
 	// solo.sleep(10000);
 	// assertTrue(uihelper.getElementsPersonActivity().isnotlogin());
-	//
 	// }
 
 	/*

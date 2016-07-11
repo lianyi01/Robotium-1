@@ -161,7 +161,6 @@ public class ElementsHomeInfo {
 
 	public void clickNearButton() {
 		try {
-
 			solo.clickOnView(util.findViewById("info_window_text"));
 		} catch (Exception e) {
 			// TODO: handle exception
