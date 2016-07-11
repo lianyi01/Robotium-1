@@ -65,14 +65,15 @@ public class MBKLogin extends BaseTest {
 		// String path =
 		// Environment.getDataDirectory().getAbsolutePath()+"/loginCase.xls";
 		// Log.e("========", path);
-		try {
-			InputStream is = solo.getCurrentActivity().getAssets().open("file:///android_asset/loginCase.xls");
-			reader.readExcelTitle(is);
+//		try {
+//			getInstrumentation().getContext().getAssets().open("file:///android_asset/loginCase.xls");
+//			InputStream is = getInstrumentation().getContext().getAssets().open("file:///android_asset/loginCase.xls");;
+//			reader.readExcelTitle(is);
 
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 
 		// List<LoginCaseModle> logincaseList = new ArrayList<LoginCaseModle>();
 		// LoginCaseModle logincase = new LoginCaseModle("1880103999",

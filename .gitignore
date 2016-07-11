@@ -2,3 +2,4 @@
 /Android private Libraries
 /gen
 /bin/*
+/bin/classes/*
