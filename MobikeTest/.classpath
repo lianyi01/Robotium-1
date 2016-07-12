@@ -6,6 +6,8 @@
 	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.35-bin.jar"/>
 	<classpathentry kind="lib" path="libs/snakeyaml-1.9.jar"/>
 	<classpathentry kind="lib" path="libs/jxl.jar"/>
+	<classpathentry kind="lib" path="libs/robotium-solo-5.6.0-javadoc.jar"/>
+	<classpathentry kind="lib" path="libs/robotium-solo-5.6.0.jar"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>

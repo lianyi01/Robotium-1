@@ -2,7 +2,6 @@ package mbk.page.object;
 
 import com.robotium.solo.Solo;
 
-import Untils.IdHelper.HomeInfo;
 import Untils.IdHelper.LoginPage;
 import Untils.Utils;
 
@@ -42,11 +41,12 @@ public class ElementsLoginActivity {
 	 * 获取短信验证码
 	 */
 	public void getVerifyCode(String phone) {
+
 		enterMobile(phone);
 		solo.sleep(1000);
 		solo.clickOnView(util.findViewById(LoginPage.getVerifyBtn));
 		solo.sleep(1000);
-		
+
 	}
 
 	/*
