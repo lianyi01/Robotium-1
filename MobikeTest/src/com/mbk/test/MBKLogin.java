@@ -4,12 +4,19 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
+
+import com.mbk.Model.LoginCaseModle;
+import com.mysql.jdbc.log.Slf4JLogger;
 
 import Untils.BaseTest;
 import Untils.DBUtils;
 import Untils.ExcelReader;
+import android.util.Log;
 import mbk.page.object.ElementsLoginActivity;
+import com.mbk.Model.ExpectEnum;
 
 /*
  *   登录测试
@@ -22,13 +29,86 @@ public class MBKLogin extends BaseTest {
 		super.setUp();
 	}
 
-	public void login(String username) {
+	public void login_success(String username) {
 		loginObject.getVerifyCode(username);
 		String password = DBUtils.redisGetCode(username);
 		loginObject.dologin(password);
 		solo.sleep(1000);
 		exitlogin();
 		uihelper.getElementsPersonActivity().pressLoginButton();
+
+	}
+
+	public void login_failed_phone(String username) {
+		loginObject.getVerifyCode(username);
+		solo.sleep(1000);
+
+	}
+
+	public void login_faied_network() {
+
+	}
+
+	/*
+	 * 通过个人中心登录 测试正确号码段
+	 */
+	public void testexecutor() throws IOException {
+		solo.sleep(1000);
+		homeexit();
+		uihelper.getElementsHomeInfo().info();
+		solo.sleep(1000);
+		// 判断是否是登录状态
+		if (!uihelper.getElementsPersonActivity().isnotlogin()) {
+			// 是－－> 退出登录
+			exitlogin();
+		}
+		uihelper.getElementsPersonActivity().pressLoginButton();
+		solo.sleep(1000);
+		ExcelReader reader = new ExcelReader();
+		List<Map<String, Object>> datalist = reader.readExcelRow("/assets/data/loginCase.xls");
+		List<LoginCaseModle> loginCaseList = new ArrayList<LoginCaseModle>();
+		// 将map转化为LoginCaseModle对象
+		for (int i = 0; i < datalist.size(); i++) {
+			Map<String, Object> data = datalist.get(i);
+			LoginCaseModle lo_case = new LoginCaseModle();
+			for (int j = 0; j < data.size(); j++) {
+				String phone = data.get("phone").toString();
+				String id = data.get("id").toString();
+				String expect = data.get("expect").toString();
+				String describe = data.get("describe").toString();
+				lo_case.setId(id);
+				lo_case.setPhone(phone);
+				lo_case.setExpect(ExpectEnum.valueOf(expect));
+				lo_case.setDescribe(describe);
+			}
+			loginCaseList.add(lo_case);
+
+		}
+		for (int j = 0; j < loginCaseList.size(); j++) {
+			LoginCaseModle item = loginCaseList.get(j);
+			ExpectEnum expect = item.getExpect();
+			String phone = item.getPhone();
+			loginObject = uihelper.getElementsLoginActivity();
+			switch (expect) {
+			case success:
+				// login_success(phone);
+				break;
+			case failedByPhone:
+				login_failed_phone(phone);
+
+				break;
+			case failedByVerify:
+
+				break;
+			case failedByNetWork:
+				// login_faied_network();
+
+				break;
+
+			default:
+				break;
+			}
+		}
 
 	}
 
@@ -39,72 +119,6 @@ public class MBKLogin extends BaseTest {
 		uihelper.getElementsPersonActivity().swipeTop();
 
 	}
-
-	/*
-	 * 通过个人中心登录 测试正确号码段
-	 */
-	public void testexecutor() {
-		// solo.sleep(1000);
-		// homeexit();
-		// uihelper.getElementsHomeInfo().info();
-		// solo.sleep(1000);
-		// // 判断是否是登录状态
-		// if (!uihelper.getElementsPersonActivity().isnotlogin()) {
-		// // 是－－> 退出登录
-		// exitlogin();
-		// }
-		// uihelper.getElementsPersonActivity().pressLoginButton();
-		// solo.sleep(1000);
-		// String info[] = new String[] { "18001000002", "18501039991" };
-		// for (int i = 0; i < info.length; i++) {
-		// String phone = info[i];
-		// loginObject = uihelper.getElementsLoginActivity();
-		// login(phone);
-		// }
-		ExcelReader reader = new ExcelReader();
-		// String path =
-		// Environment.getDataDirectory().getAbsolutePath()+"/loginCase.xls";
-		// Log.e("========", path);
-//		try {
-//			getInstrumentation().getContext().getAssets().open("file:///android_asset/loginCase.xls");
-//			InputStream is = getInstrumentation().getContext().getAssets().open("file:///android_asset/loginCase.xls");;
-//			reader.readExcelTitle(is);
-
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-
-		// List<LoginCaseModle> logincaseList = new ArrayList<LoginCaseModle>();
-		// LoginCaseModle logincase = new LoginCaseModle("1880103999",
-		// ExpectEnum.failedByPhone);
-		// LoginCaseModle logincase1 = new LoginCaseModle("18801039991",
-		// ExpectEnum.success);
-		// logincaseList.add(logincase);
-		// logincaseList.add(logincase1);
-		// for (int i = 0; i < logincaseList.size(); i++) {
-		// LoginCaseModle item = logincaseList.get(i);
-		// item.getExpect();
-		// switch (item.getExpect()) {
-		// case success:
-		// break;
-		// case failedByPhone:
-		// break;
-		//
-		// case failedByVerify:
-		// break;
-		//
-		// case failedByNetWork:
-		// break;
-		//
-		// default:
-		// break;
-		// }
-		//
-		// }
-
-	}
-
 	/*
 	 * 语音获取验证码
 	 */
