@@ -3,3 +3,5 @@
 /gen
 /bin/*
 /bin/classes/*
+*.class
+/bin
