@@ -2,6 +2,7 @@ package mbk.page.object;
 
 import com.robotium.solo.Solo;
 
+import Untils.IdHelper.HomeInfo;
 import Untils.Utils;
 import android.util.Log;
 import android.view.View;
@@ -47,7 +48,7 @@ public class ElementsGuidePage {
 	}
 	public Boolean getSearchTxt(String exceptText){
 		//摩拜单车使用说明按钮
-		solo.waitForFragmentByTag("mobike_user_manual_button", 5000);
+		solo.waitForFragmentByTag(HomeInfo.guide, 5000);
 		Boolean exmess = solo.searchText(exceptText);
 		return exmess;
 	}
