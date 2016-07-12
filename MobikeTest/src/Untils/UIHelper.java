@@ -8,7 +8,7 @@ import com.robotium.solo.Solo;
 
 import android.util.Log;
 import android.widget.TextView;
-import mbk.page.object.ElementPersonActivity;
+import mbk.page.object.ElementPersonalActivity;
 import mbk.page.object.ElementsGuidePage;
 import mbk.page.object.ElementsHomeInfo;
 import mbk.page.object.ElementsLoginActivity;
@@ -25,7 +25,7 @@ public class UIHelper {
 	private ElementsGuidePage  elementsGuidePage;
 	private ElementsHomeInfo elementsHomeInfo;
 	private ElementsQuitLogin elementsQuitLogin;
-	private ElementPersonActivity elementMainActivity;
+	private ElementPersonalActivity elementMainActivity;
 	private ElementsLoginActivity elementLoginActivity;
 	private ElementsSearchPage elementsSearchPage;
 	
@@ -73,9 +73,9 @@ public class UIHelper {
 	/**
 	 * 主页
 	 */
-	public ElementPersonActivity getElementsPersonActivity(){
+	public ElementPersonalActivity getElementsPersonActivity(){
 		if(elementMainActivity == null){
-			elementMainActivity = new ElementPersonActivity(solo);
+			elementMainActivity = new ElementPersonalActivity(solo);
 		}
 		return elementMainActivity;
 	}

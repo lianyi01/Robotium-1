@@ -2,6 +2,7 @@ package mbk.page.object;
 
 import com.robotium.solo.Solo;
 
+import Untils.IdHelper.PersonalPage;
 import Untils.Utils;
 import android.util.Log;
 import android.view.View;
@@ -11,12 +12,12 @@ import android.widget.Button;
 /*
  * 个人中心
  */
-public class ElementPersonActivity {
+public class ElementPersonalActivity {
 	private Utils util;
 	private Solo solo;
 	private View loginButton,setButton;
 
-	public ElementPersonActivity(Solo solo) {
+	public ElementPersonalActivity(Solo solo) {
 		super();
 		this.solo = solo;
 		this.util = new Utils(solo);
@@ -25,8 +26,8 @@ public class ElementPersonActivity {
 	}
 
 	private void initView() {
-		loginButton = util.findViewById("btn_credit");
-		setButton = util.findViewById("setting_rootview");
+		loginButton = util.findViewById(PersonalPage.creditBtn);
+		setButton = util.findViewById(PersonalPage.settingBtn);
 	}
 
 	/*
@@ -62,7 +63,7 @@ public class ElementPersonActivity {
 	 * 判断未登录状态
 	 */
 	public boolean isnotlogin(){
-		Boolean islogin = solo.searchButton("登录/注册");
+		Boolean islogin = solo.searchButton(PersonalPage.loginText);
 		return islogin;
 	}
 	

@@ -8,7 +8,6 @@ import Untils.ReturnPageUI;
 import Untils.Utils;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 /**
  * 首页所有控件信息
@@ -19,10 +18,10 @@ public class ElementsHomeInfo {
 	private Solo solo;
 	private Utils util;
 
-	//页面控件UI对象
+	// 页面控件UI对象
 	private ReturnPageUI rePageUI;
-	private Map<String,String> mapKey;
-	//摩拜单车使用说明
+	private Map<String, String> mapKey;
+	// 摩拜单车使用说明
 
 	// 页面控件UI对象
 
@@ -46,10 +45,9 @@ public class ElementsHomeInfo {
 		// TODO Auto-generated constructor stub
 		this.solo = solo;
 		util = new Utils(solo);
-		//初始化HomeInfo数据页对象
+		// 初始化HomeInfo数据页对象
 		rePageUI = new ReturnPageUI();
 		mapKey = rePageUI.getHomeInfoPageUI();
-		
 
 	}
 
@@ -86,7 +84,7 @@ public class ElementsHomeInfo {
 		// 获取帮助说明文字
 		String text;
 
-		guideText = (TextView)util.findViewById(mapKey.get("HomeInfo.guide"));
+		guideText = (TextView) util.findViewById(mapKey.get("HomeInfo.guide"));
 		guideText = (TextView) util.findViewById("mobike_user_manual_button");
 		text = guideText.getText().toString();
 		return text;
@@ -178,11 +176,12 @@ public class ElementsHomeInfo {
 			return false;
 		}
 	}
-	public void clickNearButton(){
-		try{
-			
+
+	public void clickNearButton() {
+		try {
+
 			solo.clickOnView(util.findViewById(mapKey.get("HomeInfo.nearByButton")));
-		}catch (Exception e) {
+		} catch (Exception e) {
 			Log.e("错误信息：点击离我最近按钮", e.getMessage().toString());
 		}
 	}
