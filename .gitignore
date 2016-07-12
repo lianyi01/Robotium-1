@@ -1,4 +1,5 @@
-/Android 4.3.1
-/Android private Libraries
-/gen
-/bin/*
+./Android 4.3.1
+./Android private Libraries
+./gen
+./bin/*
+./.DS_Store
