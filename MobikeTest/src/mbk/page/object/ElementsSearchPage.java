@@ -11,7 +11,11 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-
+/**
+ * 搜索页所有控件信息
+ * @author mac-li
+ *
+ */
 public class ElementsSearchPage {
 	
 	private Solo solo;

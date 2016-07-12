@@ -10,7 +10,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-
+/**
+ * 首页所有控件信息
+ * @author mac-li
+ *
+ */
 public class ElementsHomeInfo {
 	private Solo solo;
 	private Utils util;
