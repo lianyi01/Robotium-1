@@ -17,14 +17,6 @@ public class ElementsLoginActivity {
 		super();
 		this.solo = solo;
 		util = new Utils(solo);
-		// initViews();
-	}
-
-	public void initViews() {
-		// edt_mobileNum = util.findEditTextById("mobile_number");
-		// edt_verify = util.findEditTextById("verify_code");
-		// btn_verify = util.findViewById("get_verify_code_btn");
-		// btn_login = util.findViewById("sign_in_button");
 	}
 
 	public void enterMobile(String phone) {
@@ -41,11 +33,9 @@ public class ElementsLoginActivity {
 	 * 获取短信验证码
 	 */
 	public void getVerifyCode(String phone) {
-
 		enterMobile(phone);
 		solo.sleep(1000);
 		solo.clickOnView(util.findViewById(LoginPage.getVerifyBtn));
-		solo.sleep(1000);
 
 	}
 
@@ -74,7 +64,6 @@ public class ElementsLoginActivity {
 		enterVerifyCode(verifycode);
 		solo.sleep(1000);
 		solo.clickOnView(util.findViewById(LoginPage.signBtn));
-		solo.sleep(3000);
 	}
 
 	public String title() {

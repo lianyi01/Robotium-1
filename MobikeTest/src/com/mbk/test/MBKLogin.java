@@ -41,24 +41,18 @@ public class MBKLogin extends BaseTest {
 		uihelper.getElementsPersonActivity().pressLoginButton();
 
 	}
+
 	public void login_failed_verify(String username) {
-//		loginObject.enterMobile(username);
-		loginObject.getVerifyCode(username);
-		assertTrue(uihelper.toastMessage(100, "验证码已发送"));
-
-//		String password = "1234";
-//		loginObject.dologin(password);
-//		assertTrue(uihelper.toastMessage(100, "您输入的验证码不正确"));
-
-	
+		 loginObject.enterMobile(username);
+		 String password = "1234";
+		 loginObject.dologin(password);
+		 assertTrue(uihelper.toastMessage(100, "您输入的验证码不正确"));
 
 	}
-	
 
 	public void login_failed_phone(String username) {
 		loginObject.getVerifyCode(username);
-		solo.sleep(1000);
-		assertTrue(uihelper.toastMessage(1000, LoginPage.phoneInvalidity));
+		assertTrue(uihelper.toastMessage(100, LoginPage.phoneInvalidity));
 	}
 
 	public void login_faied_network(String username) {
@@ -66,9 +60,7 @@ public class MBKLogin extends BaseTest {
 		solo.sleep(1000);
 		loginObject.getVerifyCode(username);
 		solo.setWiFiData(true);
-		Log.e("!!!!!!!!!!!!", "222222222");
 		assertTrue(uihelper.toastMessage(100, LoginPage.withoutNetwork));
-		// solo.setWiFiData(true);
 		solo.sleep(3000);
 
 	}
@@ -78,7 +70,7 @@ public class MBKLogin extends BaseTest {
 	 */
 	public void testexecutor() throws IOException {
 		solo.sleep(1000);
-//		homeexit();
+		// homeexit();
 		uihelper.getElementsHomeInfo().info();
 		uihelper.getElementsPersonActivity().pressLoginButton();
 		solo.sleep(1000);
@@ -107,7 +99,7 @@ public class MBKLogin extends BaseTest {
 
 				break;
 			case failedByVerify:
-				login_failed_verify(phone);
+				 login_failed_verify(phone);
 
 				break;
 			case failedByNetWork:

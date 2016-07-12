@@ -114,8 +114,6 @@ public class UIHelper {
 
 		int timeoutnum = 0;
 		String toastms = null;
-		Log.e("------------To进入：", "qqqqqqqqq");
-
 		while (timeoutnum < 10) {
 			// 获取toast，getView("message",0)参数“message”为固定值类似一个key,toast内容是这个key的value
 			TextView toastmes = (TextView) solo.getView("message", 0);
@@ -129,7 +127,6 @@ public class UIHelper {
 			} else {
 				timeoutnum++;
 				solo.sleep(timeout);
-				Log.e("------------Toast没劲：", toastms);
 
 			}
 
