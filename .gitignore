@@ -1,7 +1,18 @@
+<<<<<<< HEAD
+./Android 4.3.1
+./Android private Libraries
+./gen
+./bin/*
+./.DS_Store
+=======
 /Android4.3.1
 /Android private Libraries
 /gen
 /bin/*
 /bin/classes/*
+<<<<<<< HEAD
 *.class
 /bin
+=======
+>>>>>>> 88f64fc06e226cd7e81efa2f2167fbcf484e7549
+>>>>>>> 8430d877c26a7d04066998f27977ce04eb02c9f1
