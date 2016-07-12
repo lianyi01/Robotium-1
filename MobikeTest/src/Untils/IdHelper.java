@@ -55,4 +55,16 @@ public class IdHelper {
 
 	}
 
+	public static class PersonalPage {
+		// 未登录
+		// 登录／注册／信用分按钮
+		public static String creditBtn = "btn_credit";
+		// 登录状态
+		// 设置按钮
+		public static String settingBtn = "setting_rootview";
+		// 登录/注册文字
+		public static String loginText = "登录/注册";
+
+	}
+
 }
