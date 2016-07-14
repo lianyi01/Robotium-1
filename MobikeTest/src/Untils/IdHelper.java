@@ -19,6 +19,10 @@ public class IdHelper {
 		public static String title = "手机验证";
 		// 语音验证码对话框
 		public static String voiceDialog = "我知道了";
+		//不合法手机号－手机号格式有误
+		public static String phoneInvalidity = "手机号格式有误";
+		//网络相关－－无网络获取验证码
+		public static String withoutNetwork = "网络无法访问,请检查网络连接";
 	}
 
 	// HomeInfo-首页

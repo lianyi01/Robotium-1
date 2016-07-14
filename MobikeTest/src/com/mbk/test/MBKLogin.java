@@ -14,6 +14,9 @@ import com.mysql.jdbc.log.Slf4JLogger;
 import Untils.BaseTest;
 import Untils.DBUtils;
 import Untils.ExcelReader;
+import Untils.IdHelper.LoginPage;
+import Untils.Utils;
+import Untils.WifiControl;
 import android.util.Log;
 import mbk.page.object.ElementsLoginActivity;
 import com.mbk.Model.ExpectEnum;
@@ -39,14 +42,32 @@ public class MBKLogin extends BaseTest {
 
 	}
 
-	public void login_failed_phone(String username) {
-		loginObject.getVerifyCode(username);
-		solo.sleep(1000);
-		
+	public void login_failed_verify(String username) {
+		 loginObject.enterMobile(username);
+		 String password = "1234";
+		 loginObject.dologin(password);
+		 assertTrue(uihelper.toastMessage(100, "您输入的验证码不正确"));
 
 	}
 
-	public void login_faied_network() {
+	public void login_failed_phone(String username) {
+		loginObject.getVerifyCode(username);
+<<<<<<< HEAD
+		solo.sleep(1000);
+		
+
+=======
+		assertTrue(uihelper.toastMessage(100, LoginPage.phoneInvalidity));
+>>>>>>> fe1976e1fda949692484adb3fd2130353a4e00a9
+	}
+
+	public void login_faied_network(String username) {
+		solo.setWiFiData(false);
+		solo.sleep(1000);
+		loginObject.getVerifyCode(username);
+		solo.setWiFiData(true);
+		assertTrue(uihelper.toastMessage(100, LoginPage.withoutNetwork));
+		solo.sleep(3000);
 
 	}
 
@@ -56,19 +77,58 @@ public class MBKLogin extends BaseTest {
 	 */
 	public void testexecutor() throws IOException {
 		solo.sleep(1000);
-		homeexit();
+		// homeexit();
 		uihelper.getElementsHomeInfo().info();
-		solo.sleep(1000);
-		// 判断是否是登录状态
-		if (!uihelper.getElementsPersonActivity().isnotlogin()) {
-			// 是－－> 退出登录
-			exitlogin();
-		}
 		uihelper.getElementsPersonActivity().pressLoginButton();
 		solo.sleep(1000);
+		List<LoginCaseModle> loginCaseList = createLoginCaseData();
+		executeCaseByData(loginCaseList);
+
+	}
+
+	/**
+	 * 数据驱动执行
+	 * 
+	 * @param loginCaseList
+	 */
+	private void executeCaseByData(List<LoginCaseModle> loginCaseList) {
+		for (int j = 0; j < loginCaseList.size(); j++) {
+			LoginCaseModle item = loginCaseList.get(j);
+			ExpectEnum expect = item.getExpect();
+			String phone = item.getPhone();
+			loginObject = uihelper.getElementsLoginActivity();
+			switch (expect) {
+			case success:
+				// login_success(phone);
+				break;
+			case failedByPhone:
+				// login_failed_phone(phone);
+
+				break;
+			case failedByVerify:
+				 login_failed_verify(phone);
+
+				break;
+			case failedByNetWork:
+//				login_faied_network(phone);
+
+				break;
+
+			default:
+				break;
+			}
+		}
+	}
+
+	/**
+	 * 从excel读取并生成LoginCaseModle对象数组
+	 * 
+	 * @return LoginCaseModle数组
+	 */
+	private List<LoginCaseModle> createLoginCaseData() {
+		List<LoginCaseModle> loginCaseList = new ArrayList<LoginCaseModle>();
 		ExcelReader reader = new ExcelReader();
 		List<Map<String, Object>> datalist = reader.readExcelRow("/assets/data/loginCase.xls");
-		List<LoginCaseModle> loginCaseList = new ArrayList<LoginCaseModle>();
 		// 将map转化为LoginCaseModle对象
 		for (int i = 0; i < datalist.size(); i++) {
 			Map<String, Object> data = datalist.get(i);
@@ -84,34 +144,8 @@ public class MBKLogin extends BaseTest {
 				lo_case.setDescribe(describe);
 			}
 			loginCaseList.add(lo_case);
-
 		}
-		for (int j = 0; j < loginCaseList.size(); j++) {
-			LoginCaseModle item = loginCaseList.get(j);
-			ExpectEnum expect = item.getExpect();
-			String phone = item.getPhone();
-			loginObject = uihelper.getElementsLoginActivity();
-			switch (expect) {
-			case success:
-				// login_success(phone);
-				break;
-			case failedByPhone:
-				login_failed_phone(phone);
-
-				break;
-			case failedByVerify:
-
-				break;
-			case failedByNetWork:
-				// login_faied_network();
-
-				break;
-
-			default:
-				break;
-			}
-		}
-
+		return loginCaseList;
 	}
 
 	private void exitlogin() {
@@ -180,6 +214,7 @@ public class MBKLogin extends BaseTest {
 	 */
 	public void tearDown() throws Exception {
 		// TODO Auto-generated method stub
+
 		super.tearDown();
 	}
 }
