@@ -37,6 +37,8 @@ public class IdHelper {
 		public static String nearByButton = "info_window_text";
 		// 摩拜单车使用说明
 		public static String guide = "mobike_user_manual_button";
+		// 首页点击开锁出现登录按钮
+		public static String ulogin = "hintCard_login_button";
 	}
 
 	// 搜索页面
@@ -65,6 +67,36 @@ public class IdHelper {
 		// 登录/注册文字
 		public static String loginText = "登录/注册";
 
+	}
+	public static class BookingPage{
+		//待预约面板车辆地理位置
+		public static String uLocalText = "bike_info_board_address";
+		//待预约面板可用车数量
+		public static String uBikeUseNum = "bike_info_board_bike_number";
+		//预约用车按钮
+		public static String bookingButton = "request_booking_button";
+		//预约与计费卡片tilte
+		public static String bookingHelpPicTitle = "hintcard_title";
+		//预约与计费卡片关闭按钮
+		public static String bookingHelpCloseBtn = "hintview_close";
+		//预约用车描述框title
+		public static String messageBox = "title";
+		//预约用车描述框关闭按钮
+		public static String messageBoxCloseBtn = "我知道了";
+		//预约面板用户定位Text
+		public static String localText = "booking_active_text";
+		//自行车编号
+		public static String bikeNumText = "booking_order_bike_id_text";
+		//预约倒计时
+		public static String timerText = "booking_countdown_time";
+		//寻车铃按钮
+		public static String beepButton = "beep_button";
+		//寻车铃Text
+		public static String beepText = "寻车铃";
+		//取消预约按钮
+		public static String cancelBookingBtn = "booking_cancel_button";
+		//取消预约Text
+		public static String cancelText = "取消预约";
 	}
 
 }

@@ -55,12 +55,14 @@ public class ElementsQuitLogin {
 		}
 	}
 
+
 	/**
 	 * 点击退出按钮
 	 */
 
 	public void clickQuitButton() {
 		try {
+			
 			quitButton = utils.findViewById("logout_button");
 			solo.clickOnView(quitButton);
 		} catch (Exception e) {

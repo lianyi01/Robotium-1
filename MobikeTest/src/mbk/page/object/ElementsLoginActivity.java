@@ -2,7 +2,6 @@ package mbk.page.object;
 
 import com.robotium.solo.Solo;
 
-import Untils.IdHelper.HomeInfo;
 import Untils.IdHelper.LoginPage;
 import Untils.Utils;
 
@@ -45,7 +44,7 @@ public class ElementsLoginActivity {
 		enterMobile(phone);
 		solo.sleep(1000);
 		solo.clickOnView(util.findViewById(LoginPage.getVerifyBtn));
-		solo.sleep(1000);
+//		solo.sleep(1000);
 		
 	}
 

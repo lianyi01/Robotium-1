@@ -1,11 +1,8 @@
 package mbk.page.object;
 
-import java.util.Map;
-
 import com.robotium.solo.Solo;
 
 import Untils.IdHelper.HomeInfo;
-import Untils.ReturnPageUI;
 import Untils.Utils;
 import android.util.Log;
 import android.view.View;
@@ -41,14 +38,16 @@ public class ElementsHomeInfo {
 	private View unlockButton;
 	// 离我最近按钮
 	private View nearByButton;
-
+	//开锁－登录按钮
+	private View uloginButton;
+	
 	public ElementsHomeInfo(Solo solo) {
 		// TODO Auto-generated constructor stub
 		this.solo = solo;
 		util = new Utils(solo);
 		// 初始化HomeInfo数据页对象
-		rePageUI = new ReturnPageUI();
-		mapKey = rePageUI.getHomeInfoPageUI();
+//		rePageUI = new ReturnPageUI();
+//		mapKey = rePageUI.getHomeInfoPageUI();
 
 	}
 
@@ -179,8 +178,8 @@ public class ElementsHomeInfo {
 
 	public void clickNearButton() {
 		try {
-
-			solo.clickOnView(util.findViewById(HomeInfo.nearByButton));
+			nearByButton = util.findViewById(HomeInfo.nearByButton);
+			solo.clickOnView(nearByButton);
 		} catch (Exception e) {
 			Log.e("错误信息：点击离我最近按钮", e.getMessage().toString());
 		}
@@ -190,11 +189,19 @@ public class ElementsHomeInfo {
 		Boolean hasIntroduceBtn = solo.searchButton("摩拜单车使用说明");
 		return hasIntroduceBtn;
 	}
-
+	/**
+	 * 开锁－立即登陆
+	 */
 	public void pressloginFromScan() {
+		try{
 		clickUnlock();
-		View loginScan = util.findViewById("hintCard_login_button");
-		solo.clickOnView(loginScan);
+		uloginButton = util.findViewById(HomeInfo.ulogin);
+		solo.clickOnView(uloginButton);
+		}catch(Exception e){
+			Log.e("错误信息：首页点击登录按钮", e.getMessage());
+		}
 	}
+	
+
 
 }

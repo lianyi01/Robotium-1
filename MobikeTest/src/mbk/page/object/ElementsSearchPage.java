@@ -41,8 +41,8 @@ public class ElementsSearchPage {
 		
 		util = new Utils(solo);
 		//初始化SearchPage数据页对象
-		rePageUI = new ReturnPageUI();
-		mapKey = rePageUI.getSearchPageUI();
+//		rePageUI = new ReturnPageUI();
+//		mapKey = rePageUI.getSearchPageUI();
 	}
 
 	

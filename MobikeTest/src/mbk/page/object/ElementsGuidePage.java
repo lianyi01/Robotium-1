@@ -5,8 +5,6 @@ import com.robotium.solo.Solo;
 import Untils.IdHelper.HomeInfo;
 import Untils.Utils;
 import android.util.Log;
-import android.view.View;
-import android.widget.EditText;
 /**
  * 引导页
  * @author mac-li

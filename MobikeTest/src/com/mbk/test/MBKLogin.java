@@ -42,12 +42,14 @@ public class MBKLogin extends BaseTest {
 	public void login_failed_phone(String username) {
 		loginObject.getVerifyCode(username);
 		solo.sleep(1000);
+		
 
 	}
 
 	public void login_faied_network() {
 
 	}
+
 
 	/*
 	 * 通过个人中心登录 测试正确号码段
