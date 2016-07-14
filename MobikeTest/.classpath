@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="com.android.ide.eclipse.adt.ANDROID_FRAMEWORK"/>
-	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
-	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.DEPENDENCIES"/>
+	<classpathentry kind="lib" path="libs/jedis-2.1.0.jar"/>
 	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.35-bin.jar"/>
-	<classpathentry kind="lib" path="libs/snakeyaml-1.9.jar"/>
-	<classpathentry kind="lib" path="libs/jxl.jar"/>
-<<<<<<< HEAD
-	<classpathentry kind="lib" path="libs/robotium-solo-5.6.0.jar"/>
-	<classpathentry kind="lib" path="libs/robotium-solo-5.6.0-javadoc.jar"/>
-=======
 	<classpathentry kind="lib" path="libs/robotium-solo-5.6.0-javadoc.jar"/>
 	<classpathentry kind="lib" path="libs/robotium-solo-5.6.0.jar"/>
->>>>>>> fe1976e1fda949692484adb3fd2130353a4e00a9
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
-	<classpathentry kind="output" path="bin/classes"/>
+	<classpathentry kind="output" path="bin"/>
 </classpath>

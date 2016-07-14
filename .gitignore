@@ -1,7 +1,6 @@
 ./.DS_Store
 /Android4.3.1
 /Android private Libraries
-/gen
 /bin/*
 /bin/classes/*
 *.class
