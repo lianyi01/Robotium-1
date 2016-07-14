@@ -52,13 +52,9 @@ public class MBKLogin extends BaseTest {
 
 	public void login_failed_phone(String username) {
 		loginObject.getVerifyCode(username);
-<<<<<<< HEAD
 		solo.sleep(1000);
-		
 
-=======
 		assertTrue(uihelper.toastMessage(100, LoginPage.phoneInvalidity));
->>>>>>> fe1976e1fda949692484adb3fd2130353a4e00a9
 	}
 
 	public void login_faied_network(String username) {
