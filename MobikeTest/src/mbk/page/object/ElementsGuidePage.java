@@ -5,10 +5,7 @@ import com.robotium.solo.Solo;
 import Untils.IdHelper.HomeInfo;
 import Untils.Utils;
 import android.util.Log;
-<<<<<<< HEAD
-=======
 
->>>>>>> fe1976e1fda949692484adb3fd2130353a4e00a9
 /**
  * 引导页
  * 
