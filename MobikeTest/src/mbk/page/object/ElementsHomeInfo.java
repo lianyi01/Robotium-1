@@ -46,11 +46,9 @@ public class ElementsHomeInfo {
 		this.solo = solo;
 		util = new Utils(solo);
 		// 初始化HomeInfo数据页对象
-<<<<<<< HEAD
+
 //		rePageUI = new ReturnPageUI();
 //		mapKey = rePageUI.getHomeInfoPageUI();
-=======
->>>>>>> fe1976e1fda949692484adb3fd2130353a4e00a9
 
 	}
 
@@ -181,12 +179,9 @@ public class ElementsHomeInfo {
 
 	public void clickNearButton() {
 		try {
-<<<<<<< HEAD
 			nearByButton = util.findViewById(HomeInfo.nearByButton);
 			solo.clickOnView(nearByButton);
-=======
-			solo.clickOnView(util.findViewById(HomeInfo.nearByButton));
->>>>>>> fe1976e1fda949692484adb3fd2130353a4e00a9
+
 		} catch (Exception e) {
 			Log.e("错误信息：点击离我最近按钮", e.getMessage().toString());
 		}
