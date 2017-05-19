@@ -25,11 +25,11 @@ public class DBUtils {
     // 驱动程序名
     String driver = "com.mysql.jdbc.Driver";
     // URL指向要访问的数据库名scutcs
-    String url = "jdbc:mysql://mysqlserver51.mysqldb.chinacloudapi.cn:3306?useUnicode=true&characterEncoding=gbk";
+    String url = "jdbc:mysql://xxx?useUnicode=true&characterEncoding=gbk";
     // MySQL配置时的用户名
-    String user = "mysqlserver51%mobike001";
+    String user = "xxx";
     // MySQL配置时的密码
-    String password = "m0bike123";
+    String password = "xxx";
     public Connection conn;
     public Statement stmt;
     public ResultSet resultset = null;
