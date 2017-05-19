@@ -12,7 +12,7 @@ public class DBUtils {
 	public static String redisGetCode(String phone) {
 		String code = null;
 		if (null != phone && "" != phone && phone.length() == 11) {
-			Jedis jedis = new Jedis("139.219.12.51", 30303);
+			Jedis jedis = new Jedis("xxx", port);
 			code = jedis.get(phone);
 		}
 		return code;
